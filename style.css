@@ -197,7 +197,7 @@ button {
 /**/
 /* HTML:  */
 .loader {
-  width: 25px;
+  width: 22px;
   aspect-ratio: 1;
   border-radius: 50%;
   border: 5px solid var(--white-e0-95);
