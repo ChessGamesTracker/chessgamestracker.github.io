@@ -200,6 +200,16 @@ function getTimeControlCategory(timeControl) {
   }
 }
 
+function showLoader() {
+  document.getElementById("loader").style.display = "inline";
+  document.querySelector("#addGame span").innerHTML = "Loading";
+}
+
+function hideLoader() {
+  document.getElementById("loader").style.display = "none";
+  document.querySelector("#addGame span").innerHTML = "Add Game";
+}
+
 async function fide_api(FIDE) {
   const apiUrl = `https://api.allorigins.win/raw?url=https://fide-api.vercel.app/player_info/?fide_id=${FIDE}&history=false`;
 
@@ -231,7 +241,7 @@ function abbreviateTitle(title) {
 }
 
 async function addGame(event) {
-  document.getElementById("loader").style.display = "inline";
+  showLoader();
   event.preventDefault();
   const whiteFIDE = parseInt(document.getElementById("whiteFIDE").value.trim());
   const blackFIDE = parseInt(document.getElementById("blackFIDE").value.trim());
@@ -243,15 +253,15 @@ async function addGame(event) {
     let [playerBlack, blackTitle] = await fide_api(blackFIDE);
 
     if (playerWhite === "N/A" && playerBlack === "N/A") {
-      document.getElementById("loader").style.display = "none";
+      hideLoader();
       alert("Both players have invalid FIDE IDs. Please try again.");
       return;
     } else if (playerWhite === "N/A") {
-      document.getElementById("loader").style.display = "none";
+      hideLoader();
       alert("Invalid FIDE ID for White player. Please try again.");
       return;
     } else if (playerBlack === "N/A") {
-      document.getElementById("loader").style.display = "none";
+      hideLoader();
       alert("Invalid FIDE ID for Black player. Please try again.");
       return;
     }
@@ -288,7 +298,7 @@ async function addGame(event) {
     displayGames();
     event.target.reset();
 
-    document.getElementById("loader").style.display = "none";
+    hideLoader();
 
     alert(
       `${toUnicodeVariant(
@@ -303,7 +313,7 @@ async function addGame(event) {
     );
   } catch (error) {
     alert("Error fetching FIDE data. Please try again.");
-    document.getElementById("loader").style.display = "none";
+    hideLoader();
   }
 }
 
