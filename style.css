@@ -1,0 +1,212 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("root.css");
+
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: url("https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PedroPinhata/php6wV0bn.png")
+    no-repeat fixed;
+  background-size: cover;
+  background-color: #eaeaea;
+  color: var(--text-100);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+  background-color: var(--white-container);
+  padding: 50px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320px;
+  background: url("/api/placeholder/900/320") center/cover;
+  z-index: -1;
+  border-radius: 16px 16px 0 0;
+  filter: brightness(0.8);
+}
+
+/* Typography */
+.container h1 {
+  text-align: center;
+  color: var(--text-100);
+  margin-bottom: 35px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Tab Buttons */
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.tab-buttons button {
+  background-color: var(--white-container);
+  border: 2px solid var(--white-d);
+  padding: 14px 28px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Improved tab button styling for a more cohesive look */
+.tab-buttons button:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none !important;
+}
+
+.tab-buttons button:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none !important;
+}
+
+.tab-buttons button:not(:last-child):not(:first-child) {
+  border-radius: 0;
+  border-left: none !important;
+  border-right: none !important;
+}
+
+.tab-buttons button.active {
+  background-color: var(--orange);
+  color: var(--white-container);
+  border-color: transparent;
+}
+
+.tab-buttons button:not(.active) {
+  color: var(--grey-666);
+  background-color: var(--white-container);
+}
+
+/* Tab Content */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Form Styles */
+form {
+  display: grid;
+  gap: 20px;
+}
+
+input,
+select,
+button {
+  padding: 14px 18px;
+  background-color: var(--white-container);
+  border: 1px solid var(--white-c);
+  border-radius: 10px; /* Uniform border-radius */
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+button {
+  background-color: var(--orange);
+  color: var(--white-container);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addGame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
+/* Inline Form and Input Specific Styles */
+.inlineForm {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.flex {
+  flex-grow: 1;
+}
+
+.titleInput,
+.ratingInput {
+  text-align: center;
+}
+
+.titleInput {
+  flex: 0 0 70px;
+  width: 70px;
+}
+
+.ratingInput {
+  flex: 0 0 115px;
+  width: 115px;
+}
+
+#round,
+#time {
+  flex: 0 0 100px !important;
+  width: 100px !important;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/**/
+/* HTML:  */
+.loader {
+  width: 25px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 5px solid var(--white-e0-95);
+  border-right-color: transparent;
+  animation: l2 1s infinite linear;
+  display: none;
+}
+@keyframes l2 {
+  to {
+    transform: rotate(1turn);
+  }
+}

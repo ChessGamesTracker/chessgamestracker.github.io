@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Chess Games Tracker - Log and Analyze Your Chess Matches">
+    <meta name="keywords" content="chess, games, tracker, FIDE, ratings">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Games Tracker</title>
+    <link rel="icon" type="image/x-icon" href="knight.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="responsive.css" />
+    <link rel="stylesheet" href="custom-select.css" />
+    <link rel="stylesheet" href="game-entry.css" />
+    <link rel="stylesheet" href="dark-theme.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        Chess Games Tracker
+      </h1>
+      <div class="tab-buttons">
+        <button class="tab-btn active">Add Game</button>
+        <button class="tab-btn">View Games</button>
+      </div>
+      <div class="tab-content active">
+        <form id="gameForm">
+          <div class="inlineForm">
+            <input
+              type="number"
+              id="whiteFIDE"
+              class="flex"
+              placeholder="White Player FIDE ID"
+              required
+              title="Please enter a valid FIDE ID"
+            />
+            <input
+              type="number"
+              min="1400"
+              max="3500"
+              id="whiteRating"
+              class="flex ratingInput"
+              placeholder="Rating"
+              required
+            />
+          </div>
+          <div class="inlineForm">
+            <input
+              type="number"
+              id="blackFIDE"
+              class="flex"
+              placeholder="Black Player FIDE ID"
+              required
+              title="Please enter a valid FIDE ID"
+            />
+            <input
+              type="number"
+              min="1400"
+              max="3500"
+              id="blackRating"
+              class="flex ratingInput"
+              placeholder="Rating"
+              required
+            />
+          </div>
+          <div class="custom-select">
+            <select id="result" required>
+              <option value="0">Result</option>
+              <option value="1 - 0">1 - 0</option>
+              <option value="0 - 1">0 - 1</option>
+              <option value="½ - ½">½ - ½</option>
+            </select>
+          </div>
+          <div class="inlineForm">
+            <input
+              type="text"
+              id="tournament"
+              placeholder="Tournament"
+              class="flex"
+              required
+            />
+            <input
+              type="number"
+              id="round"
+              placeholder="Round"
+              min="1"
+              class="flex"
+              required
+            />
+            <input
+              type="text"
+              id="time"
+              placeholder="Time"
+              class="flex"
+              required
+            />
+          </div>
+          <input type="date" id="date" required />
+          <input type="url" id="gameLink" placeholder="Game Link" required />
+          <button type="submit" id="addGame">Add Game <div class="loader" id="loader"></div></button>
+        </form>
+      </div>
+      <div class="tab-content">
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search by player name"
+        />
+        <div id="gamesList"></div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/js/all.min.js"
+      integrity="sha512-8py0AXTY8pfAroJmBkYfJ+VuKUKMMsUOC1MldW9kkC/k4SZi6AexSDS60QYn41U2rp8KL9IpVHy8FxW2TDmjDA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="custom-select.js"></script>
+    <script src="script.js"></script>
+    <script src="dark-theme.js"></script>
+  </body>
+</html>
