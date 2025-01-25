@@ -1,13 +1,17 @@
 /* Imports */
 @import url("root.css");
 
-/* Base Dark Theme Styles */
+/* ========================= */
+/* Base Dark Theme Styles   */
+/* ========================= */
 body.dark-theme {
     background-color: #121212;
     color: var(--white-e0);
 }
 
-/* Container Styles */
+/* ========================= */
+/* Container Styles          */
+/* ========================= */
 .dark-theme .container {
     background-color: var(--black-2c);
 }
@@ -16,7 +20,9 @@ body.dark-theme {
     color: var(--white-e0);
 }
 
-/* Tab and Button Styles */
+/* ========================= */
+/* Tab and Button Styles     */
+/* ========================= */
 .dark-theme .tab-btn {
     background-color: var(--black-2c);
 }
@@ -27,7 +33,9 @@ body.dark-theme {
     color: var(--grey-888);
 }
 
-/* Game Entry Styles */
+/* ========================= */
+/* Game Entry Styles         */
+/* ========================= */
 .dark-theme .game-entry {
     background-color: var(--black-2a);
     border: 2px solid var(--grey-555);
@@ -45,7 +53,9 @@ body.dark-theme {
     background-color: var(--white-e0);
 }
 
-/* Game Details Styles */
+/* ========================= */
+/* Game Details Styles       */
+/* ========================= */
 .dark-theme .game-details {
     color: var(--white-b0);
 }
@@ -62,7 +72,9 @@ body.dark-theme {
     color: var(--white-d);
 }
 
-/* Input and Form Styles */
+/* ========================= */
+/* Input and Form Styles     */
+/* ========================= */
 .dark-theme input, 
 .dark-theme textarea {
     background-color: var(--black-2c);
@@ -70,7 +82,9 @@ body.dark-theme {
     border: 1px solid var(--grey-444);
 }
 
-/* Custom Select Styles */
+/* ========================= */
+/* Custom Select Styles      */
+/* ========================= */
 .dark-theme .custom-select {
     --select-bg: var(--dark-bg, #2c2c2c);
     --select-text-color: var(--dark-text, #ccc);
@@ -80,7 +94,9 @@ body.dark-theme {
     --select-hover-bg: rgba(255,255,255,0.1);
 }
 
-/* Delete Button Styles */
+/* ========================= */
+/* Delete Button Styles      */
+/* ========================= */
 .dark-theme .delete-game-btn {
     background-color: var(--black-2c);
     color: var(--white-e0);
@@ -92,7 +108,9 @@ body.dark-theme {
     color: var(--black-2c);
 }
 
-/* Tournament Header Styles */
+/* ========================= */
+/* Tournament Header Styles   */
+/* ========================= */
 .dark-theme .tournament-header {
     color: var(--white-e0);
     border-top: var(--white-e0-light) 2px solid;
