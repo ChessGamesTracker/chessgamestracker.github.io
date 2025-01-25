@@ -38,7 +38,7 @@ body.dark-theme {
 /* ========================= */
 .dark-theme .game-entry {
     background-color: var(--black-2a);
-    border: 2px solid var(--grey-555);
+    border: 2px solid var(--grey-333);
     box-shadow: 
         5px 5px 10px #1e1e1e,
         -5px -5px 10px #272626;
