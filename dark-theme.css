@@ -22,10 +22,7 @@ body.dark-theme {
 }
 
 .dark-theme .tab-buttons button:not(.active) {
-    border: 2px solid var(--grey-888);
-}
-
-.dark-theme .tab-buttons button:not(.active) {
+    border: 2px solid var(--grey-555);
     background-color: var(--black-2c);
     color: var(--grey-888);
 }
@@ -33,9 +30,10 @@ body.dark-theme {
 /* Game Entry Styles */
 .dark-theme .game-entry {
     background-color: var(--black-2a);
+    border: 2px solid var(--grey-555);
     box-shadow: 
         5px 5px 10px #1e1e1e,
-        -5px -5px 10px #363636;
+        -5px -5px 10px #272626;
 }
 
 .dark-theme .game-entry:hover {
