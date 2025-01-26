@@ -92,6 +92,10 @@ body.dark-theme {
   transition: background-color 0.3s ease;
 }
 
+.dark-theme input:focus::placeholder {
+    color: var(--white-container);
+}
+
 /* ========================= */
 /* Custom Select Styles      */
 /* ========================= */
