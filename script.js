@@ -271,6 +271,14 @@ async function addGame(event) {
     return;
   }
 
+  const result = document.getElementById("result").value;
+
+  if (result === "0") {
+    alert("Please select a result!");
+    hideLoader();
+    return;
+  }
+
   try {
     let [playerWhite, whiteTitle] = await fide_api(whiteFIDE);
     let [playerBlack, blackTitle] = await fide_api(blackFIDE);
@@ -312,7 +320,7 @@ async function addGame(event) {
       black: playerBlack,
       blackRating: blackRating,
       blackTitle: blackTitle,
-      result: document.getElementById("result").value,
+      result: result,
       tournament: tournament,
       round: round,
       time: time,
