@@ -258,6 +258,11 @@ function abbreviateTitle(title) {
   return titleMap[title.toLowerCase().replace(/\s+/g, "")] || title;
 }
 
+function formatName(name) {
+  let parts = name.split(", ").map(part => part.trim());
+  return parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
+}
+
 async function addGame(event) {
   showLoader();
   event.preventDefault();
@@ -300,7 +305,10 @@ async function addGame(event) {
     }
 
     whiteTitle = abbreviateTitle(whiteTitle);
-    blackTitle = abbreviateTitle(blackTitle);    
+    blackTitle = abbreviateTitle(blackTitle);
+
+    playerWhite = formatName(playerWhite);
+    playerBlack = formatName(playerBlack);
 
     const whiteRating = parseInt(document.getElementById("whiteRating").value) || 0;
     const blackRating = parseInt(document.getElementById("blackRating").value) || 0;
