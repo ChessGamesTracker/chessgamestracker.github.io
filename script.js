@@ -300,6 +300,10 @@ async function addGame(event) {
     const timeControl = document.getElementById("time").value || "";
     const time = `${timeControl} • ${getTimeControlCategory(timeControl)}`;
 
+    const tournament = document.getElementById("tournament").value;
+    const round = parseInt(document.getElementById("round").value) || 1;
+    const date = document.getElementById("date").value
+
     const game = {
       id: Date.now(),
       white: playerWhite,
@@ -309,15 +313,27 @@ async function addGame(event) {
       blackRating: blackRating,
       blackTitle: blackTitle,
       result: document.getElementById("result").value,
-      tournament: document.getElementById("tournament").value,
-      round: parseInt(document.getElementById("round").value) || 1,
+      tournament: tournament,
+      round: round,
       time: time,
-      date: document.getElementById("date").value,
+      date: date,
       gameLink: document.getElementById("gameLink").value,
     };
 
-    // 🚀 **Add duplicate check here BEFORE pushing to games**
-    if (games.some(g => g.white === playerWhite && g.black === playerBlack && g.date === game.date)) {
+  // 🚀 **Add duplicate check here BEFORE pushing to games**
+  if (games.some(g => 
+    g.white === playerWhite && 
+    g.black === playerBlack && 
+    g.date === date && 
+    g.tournament === tournament && 
+    g.round === round)) {
+    hideLoader();
+    alert("This game already exists!");
+    return;
+  } else if (games.some(g => 
+    g.date === date && 
+    g.tournament === tournament && 
+    g.round === round)) {
       hideLoader();
       alert("This game already exists!");
       return;
