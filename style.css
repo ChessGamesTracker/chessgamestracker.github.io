@@ -135,7 +135,7 @@ button {
 }
 
 #addGame {
-  height: calc(1.25*(var(--small) + var(--normal)));
+  height: calc(1.25 * (var(--small) + var(--normal)));
   display: flex;
   align-items: center;
   justify-content: center;
