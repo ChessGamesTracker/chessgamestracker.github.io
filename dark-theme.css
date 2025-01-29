@@ -5,82 +5,80 @@
 /* Base Dark Theme Styles   */
 /* ========================= */
 body.dark-theme {
-    background-color: #121212;
-    color: var(--white-e0);
+  background-color: #121212;
+  color: var(--white-e0);
 }
 
 /* ========================= */
 /* Container Styles          */
 /* ========================= */
 .dark-theme .container {
-    background-color: var(--black-2c);
+  background-color: var(--black-2c);
 }
 
 .dark-theme .container h1 {
-    color: var(--white-e0);
+  color: var(--white-e0);
 }
 
 /* ========================= */
 /* Tab and Button Styles     */
 /* ========================= */
 .dark-theme .tab-btn {
-    background-color: var(--black-2c);
+  background-color: var(--black-2c);
 }
 
 .dark-theme .tab-buttons button:not(.active) {
-    border: 2px solid var(--grey-555);
-    background-color: var(--black-2c);
-    color: var(--grey-888);
+  border: 2px solid var(--grey-555);
+  background-color: var(--black-2c);
+  color: var(--grey-888);
 }
 
 /* ========================= */
 /* Game Entry Styles         */
 /* ========================= */
 .dark-theme .game-entry {
-    background-color: var(--black-2a);
-    border: 2px solid var(--grey-333);
-    box-shadow: 
-        5px 5px 10px #1e1e1e,
-        -5px -5px 10px #272626;
+  background-color: var(--black-2a);
+  border: 2px solid var(--grey-333);
+  box-shadow: 5px 5px 10px #1e1e1e, -5px -5px 10px #272626;
 }
 
 .dark-theme .game-entry:hover {
-    background-color: var(--black-2c);
+  background-color: var(--black-2c);
 }
 
 .dark-theme .game-round {
-    color: var(--black-2c);
-    background-color: var(--white-e0);
+  color: var(--black-2c);
+  background-color: var(--white-e0);
 }
 
 /* ========================= */
 /* Game Details Styles       */
 /* ========================= */
 .dark-theme .game-details {
-    color: var(--white-b0);
+  color: var(--white-b0);
 }
 
 .dark-theme .game-details .entry-date {
-    color: var(--grey-888);
+  color: var(--grey-888);
 }
 
 .dark-theme .game-result {
-    color: var(--white-d);
+  color: var(--white-d);
 }
 
 .dark-theme .player-details span {
-    color: var(--white-d);
+  color: var(--white-d);
 }
 
 /* ========================= */
 /* Input and Form Styles     */
 /* ========================= */
-.dark-theme input, 
-.dark-theme select, 
+.dark-theme input,
+.dark-theme select,
 .dark-theme button {
-    background-color: var(--black-2c);
-    color: var(--white-e0);
-    border: 2px solid var(--grey-444);
+  background-color: var(--black-2c);
+  color: var(--white-e0);
+  border: 2px solid var(--grey-444);
 }
 
 .dark-theme button {
@@ -93,41 +91,41 @@ body.dark-theme {
 }
 
 .dark-theme input:focus::placeholder {
-    color: var(--white-container);
+  color: var(--white-container);
 }
 
 /* ========================= */
 /* Custom Select Styles      */
 /* ========================= */
 .dark-theme .custom-select {
-    --select-bg: var(--dark-bg, #2c2c2c);
-    --select-text-color: var(--dark-text, #ccc);
-    --select-arrow-color: #ccc;
-    --select-border-color: var(--grey-444);
-    --select-item-color: #ccc;
-    --select-hover-bg: rgba(255,255,255,0.1);
-    --select-item-border-color: var(--grey-444);
+  --select-bg: var(--dark-bg, #2c2c2c);
+  --select-text-color: var(--dark-text, #ccc);
+  --select-arrow-color: #ccc;
+  --select-border-color: var(--grey-444);
+  --select-item-color: #ccc;
+  --select-hover-bg: rgba(255, 255, 255, 0.1);
+  --select-item-border-color: var(--grey-444);
 }
 
 /* ========================= */
 /* Delete Button Styles      */
 /* ========================= */
 .dark-theme .delete-game-btn {
-    background-color: var(--black-2c);
-    color: var(--white-e0);
-    transition: all 0.3s ease;
+  background-color: var(--black-2c);
+  color: var(--white-e0);
+  transition: all 0.3s ease;
 }
 
 .dark-theme .delete-game-btn:hover {
-    background-color: var(--white-e0);
-    color: var(--black-2c);
+  background-color: var(--white-e0);
+  color: var(--black-2c);
 }
 
 /* ========================= */
 /* Tournament Header Styles   */
 /* ========================= */
 .dark-theme .tournament-header {
-    color: var(--white-e0);
-    border-top: var(--white-e0-light) 2px solid;
-    border-bottom: var(--white-e0) 2px solid;
+  color: var(--white-e0);
+  border-top: var(--white-e0-light) 2px solid;
+  border-bottom: var(--white-e0) 2px solid;
 }
