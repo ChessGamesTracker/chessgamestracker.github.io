@@ -129,3 +129,7 @@ body.dark-theme {
   border-top: var(--white-e0-light) 2px solid;
   border-bottom: var(--white-e0) 2px solid;
 }
+/* Search Settings */
+.dark-theme #searchSettings {
+  color: var(--white-e0);
+}
