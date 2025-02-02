@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Authenticating...</title>
+    <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
+</head>
+<body>
+    <script>
+        const auth0Client = new auth0.WebAuth({
+            domain: "YOUR_AUTH0_DOMAIN",
+            clientID: "YOUR_AUTH0_CLIENT_ID",
+            redirectUri: "https://chessgamestracker.github.io/callback.html",
+            responseType: "token id_token",
+            scope: "openid profile email"
+        });
+
+        auth0Client.parseHash((err, authResult) => {
+            if (authResult && authResult.accessToken && authResult.idToken) {
+                localStorage.setItem("access_token", authResult.accessToken);
+                localStorage.setItem("id_token", authResult.idToken);
+                localStorage.setItem("isAuthenticated", "true");
+
+                // Redirect to a protected page (e.g., dashboard.html)
+                window.location.href = "index.html";
+            } else {
+                console.error("Authentication error:", err);
+            }
+        });
+    </script>
+</body>
+</html>
