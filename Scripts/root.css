@@ -77,3 +77,9 @@
   --select-scrollbar-track-color: rgba(0, 0, 0, 0.05);
   --select-scrollbar-thumb-color: rgba(0, 0, 0, 0.2);
 }
+
+@keyframes l2 {
+  to {
+    transform: rotate(1turn);
+  }
+}
