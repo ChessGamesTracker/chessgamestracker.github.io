@@ -20,6 +20,10 @@ body {
   min-height: 100vh;
 }
 
+.fontawesome {
+  font-family: "Poppins", 'FontAwesome', sans-serif;
+}
+
 /* Container Styles */
 .container {
   background-color: var(--white-container);
@@ -122,7 +126,7 @@ select:focus {
 }
 
 input:focus::placeholder {
-  color: var(--grey-333);
+  color: transparent;
 }
 
 button {
@@ -196,9 +200,4 @@ button {
   border-right-color: transparent;
   animation: l2 1s infinite linear;
   display: none;
-}
-@keyframes l2 {
-  to {
-    transform: rotate(1turn);
-  }
 }
