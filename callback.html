@@ -6,16 +6,22 @@
 </head>
 <body>
     <script>
+        // Wait for the Auth0 client library to be ready
         async function handleRedirect() {
+            // Initialize the Auth0 client
             const auth0Client = await createAuth0Client({
                 domain: "chessgamestracker.us.auth0.com",
                 clientId: "9pzgbKrqBnHlA27fJL7JfNFzy7msvoIQ"
             });
 
+            // Handle the redirect callback
             await auth0Client.handleRedirectCallback();
-            window.location.href = "index.html"; // Redirect to homepage after login
+
+            // Redirect to your main page after handling the login
+            window.location.href = "index.html"; 
         }
 
+        // Call the function
         handleRedirect();
     </script>
 </body>
