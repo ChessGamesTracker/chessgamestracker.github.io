@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess Games Tracker</title>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
+</head>
+<body>
+    <h1>Welcome to Chess Games Tracker</h1>
+    <button id="login-btn">Log In</button>
+    <button id="logout-btn" style="display:none;">Log Out</button>
+    <p id="user-info"></p>
+
+    <script>
+        let auth0 = null;
+
+        const auth0Config = {
+            domain: "chessgamestracker.us.auth0.com",
+            clientId: "9pzgbKrqBnHlA27fJL7JfNFzy7msvoIQ",
+            authorizationParams: {
+                redirect_uri: "https://chessgamestracker.github.io/callback.html"
+            }
+        };
+
+        async function initAuth() {
+            auth0 = await createAuth0Client(auth0Config);
+            const isAuthenticated = await auth0.isAuthenticated();
+
+            if (isAuthenticated) {
+                showUserInfo();
+            }
+        }
+
+        async function login() {
+            await auth0.loginWithRedirect();
+        }
+
+        async function logout() {
+            await auth0.logout({
+                logoutParams: { returnTo: "https://chessgamestracker.github.io" }
+            });
+        }
+
+        async function showUserInfo() {
+            const user = await auth0.getUser();
+            document.getElementById("user-info").innerHTML = `Hello, ${user.name}!`;
+            document.getElementById("login-btn").style.display = "none";
+            document.getElementById("logout-btn").style.display = "block";
+        }
+
+        document.getElementById("login-btn").addEventListener("click", login);
+        document.getElementById("logout-btn").addEventListener("click", logout);
+
+        window.onload = initAuth;
+    </script>
+</body>
+</html>
