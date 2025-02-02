@@ -2,11 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Chess Games Tracker - Log and Store Your Chess Games">
-    <meta name="keywords" content="chess, games, tracker, FIDE, ratings">
+    <meta
+      name="description"
+      content="Chess Games Tracker - Log and Store Your Chess Games"
+    />
+    <meta name="keywords" content="chess, games, tracker, FIDE, ratings" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chess Games Tracker</title>
     <link rel="icon" type="image/x-icon" href="Scripts/knight.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="Scripts/style.css" />
     <link rel="stylesheet" href="Scripts/responsive.css" />
     <link rel="stylesheet" href="Scripts/custom-select.css" />
@@ -15,9 +25,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>
-        Chess Games Tracker
-      </h1>
+      <h1>Chess Games Tracker</h1>
       <div class="tab-buttons">
         <button class="tab-btn active">Add Game</button>
         <button class="tab-btn">View Games</button>
@@ -99,27 +107,48 @@
               title="Please enter the time control"
             />
           </div>
-          <input type="date" id="date" required title="Please enter the date of the game" />
-          <input type="url" id="gameLink" placeholder="Game Link" required title="Please enter the game link" />
-          <button type="submit" id="addGame"><span>Add Game</span><div class="loader" id="loader"></div></button>
+          <input
+            type="date"
+            id="date"
+            required
+            title="Please enter the date of the game"
+          />
+          <input
+            type="url"
+            id="gameLink"
+            placeholder="Game Link"
+            required
+            title="Please enter the game link"
+          />
+          <button type="submit" id="addGame">
+            <span>Add Game</span>
+            <div class="loader" id="loader"></div>
+          </button>
         </form>
       </div>
       <div class="tab-content">
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search by player name"
-        />
+        <div id="search">
+          <input
+            type="text"
+            class="fontawesome"
+            id="searchInput"
+            placeholder="  Search by player name"
+          />
+          <div id="searchSettings">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+        </div>
         <div id="gamesList"></div>
       </div>
     </div>
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/js/all.min.js"
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
       integrity="sha512-8py0AXTY8pfAroJmBkYfJ+VuKUKMMsUOC1MldW9kkC/k4SZi6AexSDS60QYn41U2rp8KL9IpVHy8FxW2TDmjDA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
     <script src="Scripts/custom-select.js"></script>
+    <script src="Scripts/search.js"></script>
     <script src="Scripts/functions.js"></script>
     <script src="Scripts/script.js"></script>
     <script src="Scripts/dark-theme.js"></script>
