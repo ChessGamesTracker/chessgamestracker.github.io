@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Authenticating...</title>
-    <script src="https://cdn.auth0.com/js/auth0/9.19/auth0.min.js"></script>
+    <title>Redirecting...</title>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
 </head>
 <body>
     <script>
-        const auth0Client = new auth0.WebAuth({
-            domain: "YOUR_AUTH0_DOMAIN",
-            clientID: "YOUR_AUTH0_CLIENT_ID",
-            redirectUri: "https://chessgamestracker.github.io/callback.html",
-            responseType: "token id_token",
-            scope: "openid profile email"
-        });
+        async function handleRedirect() {
+            const auth0Client = await createAuth0Client({
+                domain: "chessgamestracker.us.auth0.com",
+                clientId: "9pzgbKrqBnHlA27fJL7JfNFzy7msvoIQ"
+            });
 
-        auth0Client.parseHash((err, authResult) => {
-            if (authResult && authResult.accessToken && authResult.idToken) {
-                localStorage.setItem("access_token", authResult.accessToken);
-                localStorage.setItem("id_token", authResult.idToken);
-                localStorage.setItem("isAuthenticated", "true");
+            await auth0Client.handleRedirectCallback();
+            window.location.href = "index.html"; // Redirect to homepage after login
+        }
 
-                // Redirect to a protected page (e.g., dashboard.html)
-                window.location.href = "index.html";
-            } else {
-                console.error("Authentication error:", err);
-            }
-        });
+        handleRedirect();
     </script>
 </body>
 </html>
