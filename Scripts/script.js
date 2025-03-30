@@ -27,11 +27,14 @@ async function fide_api(FIDE) {
 
     return [
       data.name || "N/A",
-      data.title || ""
+      data.title || "",
+      data.standard || 0,
+      data.rapid || 0,
+      data.blitz || 0,
     ];
   } catch (error) {
     console.error("Error fetching data:", error);
-    return ["N/A", ""];
+    return ["N/A", "", 0, 0, 0];
   }
 }
 
@@ -57,8 +60,8 @@ async function addGame(event) {
   }
 
   try {
-    let [playerWhite, whiteTitle] = await fide_api(whiteFIDE);
-    let [playerBlack, blackTitle] = await fide_api(blackFIDE);
+    let [playerWhite, whiteTitle, whiteStandard, whiteRapid, whiteBlitz] = await fide_api(whiteFIDE);
+    let [playerBlack, blackTitle, blackStandard, blackRapid, blackBlitz] = await fide_api(blackFIDE);
 
     if (playerWhite === "N/A" && playerBlack === "N/A") {
       hideLoader();
@@ -82,10 +85,22 @@ async function addGame(event) {
     playerWhite = formatName(capitalize(playerWhite));
     playerBlack = formatName(capitalize(playerBlack));
 
-    const whiteRating = parseInt(document.getElementById("whiteRating").value) || 0;
-    const blackRating = parseInt(document.getElementById("blackRating").value) || 0;
-
     const timeControl = document.getElementById("time").value || "";
+
+    let whiteRating = 0;
+    let blackRating = 0;
+
+    if (getTimeControlCategory(timeControl) === "Classical") {
+      whiteRating = whiteStandard;
+      blackRating = blackStandard;
+    } else if (getTimeControlCategory(timeControl) === "Rapid") {
+      whiteRating = whiteRapid;
+      blackRating = blackRapid;
+    } else if (getTimeControlCategory(timeControl) === "Blitz") {
+      whiteRating = whiteBlitz;
+      blackRating = blackBlitz;
+    }
+
     const time = `${timeControl} • ${getTimeControlCategory(timeControl)}`;
 
     const tournament = document.getElementById("tournament").value;
