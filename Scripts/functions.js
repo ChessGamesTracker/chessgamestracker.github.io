@@ -141,6 +141,7 @@ function refreshTitle() {
   });
 }
 
+
 function getTimeControlCategory(timeControl) {
   // Normalize input to handle various formats
   const parseTimeControl = (tc) => {
@@ -166,26 +167,32 @@ function getTimeControlCategory(timeControl) {
 
   // Classify time control based on initial time and increment
   const classifyTimeControl = (initial, increment) => {
-    // Calculate estimated game length in minutes
-    // Formula: initial time + (increment * 40 moves / 60 seconds)
-    const estimatedGameLength = initial + (increment * 40 / 60);
+    // Convert everything to seconds for easier calculation
+    const initialSeconds = initial * 60;
+    const incrementSeconds = increment;
     
-    // Bullet (not in original requirements but commonly recognized)
-    if (initial < 3 || (initial <= 2 && increment <= 1)) {
+    // Estimated total time in seconds for a 40-move game
+    const estimatedSeconds = initialSeconds + (incrementSeconds * 40);
+    
+    // Convert back to minutes for classification
+    const estimatedMinutes = estimatedSeconds / 60;
+    
+    // Bullet: Games expected to last less than 3 minutes
+    if (initial < 3 && estimatedMinutes < 7) {
       return "Bullet";
     }
     
     // Blitz: Games expected to last less than 10 minutes
-    if (initial <= 10 && estimatedGameLength < 15) {
+    if (initial < 10 && estimatedMinutes < 25) {
       return "Blitz";
     }
 
-    // Rapid: Games expected to last between 10 and 60 minutes
-    if (initial <= 30 || estimatedGameLength < 60) {
+    // Rapid: Games expected to last less than 60 minutes
+    if (initial < 30 && estimatedMinutes < 60) {
       return "Rapid";
     }
 
-    // Classical: Games expected to last more than 60 minutes
+    // Classical: Games expected to last 60 minutes or more
     return "Classical";
   };
 
