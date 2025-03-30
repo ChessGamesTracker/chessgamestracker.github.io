@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 @import url("root.css");
 
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 /* Reset and Base Styles */
 * {
   box-sizing: border-box;
@@ -10,9 +15,6 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  background: url("https://images.chesscomfiles.com/uploads/v1/images_users/tiny_mce/PedroPinhata/php6wV0bn.png")
-    no-repeat fixed;
-  background-size: cover;
   background-color: #eaeaea;
   color: var(--text-100);
   display: flex;
