@@ -5,7 +5,7 @@
 /* Base Dark Theme Styles   */
 /* ========================= */
 body.dark-theme {
-  background-color: #121212;
+  background-color: var(--black-2c);
   color: var(--white-e0);
 }
 
