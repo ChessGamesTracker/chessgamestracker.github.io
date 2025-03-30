@@ -1,6 +1,5 @@
 /* Imports */
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Jaro:opsz@6..72&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url("root.css");
 
 #gamesList {
@@ -86,8 +85,9 @@
 }
 
 .game-entry .player-rating {
+  margin-left: 4px;
   font-weight: 600;
-  font-family: "Geist Mono", monospace;
+  font-family: "Rubik", sans-serif;
 }
 
 .delete-game-btn {
@@ -134,7 +134,7 @@
 
 .game-time {
   font-weight: 600;
-  font-family: "Geist Mono", monospace;
+  font-family: "Rubik", sans-serif;
 }
 
 .tournament-header {
