@@ -14,8 +14,8 @@ html {
 }
 
 body {
+  background-color: var(--white-container);
   font-family: "Poppins", sans-serif;
-  background-color: #eaeaea;
   color: var(--text-100);
   display: flex;
   justify-content: center;
@@ -29,11 +29,10 @@ body {
 /* Container Styles */
 .container {
   background-color: var(--white-container);
+  width: 70%;
   padding: 50px;
-  width: 100%;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Typography */
