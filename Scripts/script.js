@@ -7,7 +7,7 @@ let games = JSON.parse(localStorage.getItem("chessGames")) || [];
 /*API REQUEST INFO*/
 const LOADER_CONFIG = {
   TIMEOUT_MS: 10000,
-  API_URL: 'https://api.allorigins.win/raw?url=https://fide-api.vercel.app/player_info/',
+  API_URL: 'https://lichess.org/api/fide/player/',
 };
 /*API REQUEST */
 async function fide_api(FIDE) {
@@ -17,7 +17,7 @@ async function fide_api(FIDE) {
   const timeoutId = setTimeout(() => controller.abort(), LOADER_CONFIG.TIMEOUT_MS);
 
   try {
-    const apiUrl = `${LOADER_CONFIG.API_URL}?fide_id=${FIDE}&history=false`;
+    const apiUrl = `${LOADER_CONFIG.API_URL}${FIDE}`;
     const response = await fetch(apiUrl, { signal: controller.signal });
 
     if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
@@ -27,7 +27,7 @@ async function fide_api(FIDE) {
 
     return [
       data.name || "N/A",
-      data.fide_title && data.fide_title.trim().toLowerCase() !== "none" ? data.fide_title : ""
+      data.title || ""
     ];
   } catch (error) {
     console.error("Error fetching data:", error);
