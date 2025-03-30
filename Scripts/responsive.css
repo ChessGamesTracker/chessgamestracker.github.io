@@ -2,6 +2,7 @@
 @media screen and (max-width: 800px) {
   .container {
     padding: 35px; /* Further reduce padding on smaller screens */
+    width: 100%;
   }
 
   .tab-buttons {
