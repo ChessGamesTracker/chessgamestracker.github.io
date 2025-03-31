@@ -47,13 +47,13 @@ body {
 }
 
 /* Tab Buttons */
-.tab-buttons {
+.tabButtons {
   display: flex;
   justify-content: center;
   padding-bottom: 35px;
 }
 
-.tab-buttons button {
+.tabButtons button {
   background-color: var(--white-container);
   border: 2px solid var(--white-d);
   padding: 14px 28px;
@@ -65,41 +65,41 @@ body {
 }
 
 /* Improved tab button styling for a more cohesive look */
-.tab-buttons button:first-child {
+.tabButtons button:first-child {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border-right: none !important;
 }
 
-.tab-buttons button:last-child {
+.tabButtons button:last-child {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-left: none !important;
 }
 
-.tab-buttons button:not(:last-child):not(:first-child) {
+.tabButtons button:not(:last-child):not(:first-child) {
   border-radius: 0;
   border-left: none !important;
   border-right: none !important;
 }
 
-.tab-buttons button.active {
+.tabButtons button.active {
   background-color: var(--orange);
   color: var(--white-container);
   border-color: transparent;
 }
 
-.tab-buttons button:not(.active) {
+.tabButtons button:not(.active) {
   color: var(--grey-666);
   background-color: var(--white-container);
 }
 
 /* Tab Content */
-.tab-content {
+.tabContent {
   display: none;
 }
 
-.tab-content.active {
+.tabContent.active {
   display: block;
   animation: slideIn 0.3s ease-out;
 }

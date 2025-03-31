@@ -1,9 +1,9 @@
 function toggleTheme() {
     const themeToggleBtn = document.getElementById("theme-toggle-btn");
-    document.body.classList.toggle('dark-theme');
+    document.body.classList.toggle('darkTheme');
 
     // Update button color and icon based on the current theme
-    const isDarkTheme = document.body.classList.contains('dark-theme');
+    const isDarkTheme = document.body.classList.contains('darkTheme');
     themeToggleBtn.innerHTML = isDarkTheme ? '<i class="fa-solid fa-circle-half-stroke"></i>' : '<i class="fa-solid fa-circle-half-stroke"></i>';
     themeToggleBtn.style.color = isDarkTheme ? "var(--white-container)" : "var(--deep-blue)";
 
@@ -17,7 +17,7 @@ function loadThemePreference() {
     const isDarkTheme = savedTheme === 'true';
 
     if (isDarkTheme) {
-        document.body.classList.add('dark-theme');
+        document.body.classList.add('darkTheme');
         themeToggleBtn.innerHTML = '<i class="fa-solid fa-circle-half-stroke"></i>';
         themeToggleBtn.style.color = "var(--white-container)";
     } else {

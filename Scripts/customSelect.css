@@ -1,17 +1,17 @@
 /* Imports */
 @import url("root.css");
 
-.custom-select {
+.customSelect {
   position: relative;
   font-family: "Poppins", sans-serif;
 }
 
-.custom-select select {
+.customSelect select {
   display: none; /* hide original SELECT element */
 }
 
 /* Arrow styling */
-.select-selected:after {
+.selectSelected:after {
   position: absolute;
   content: "";
   top: calc(50% - 2px);
@@ -22,15 +22,15 @@
   border-color: var(--select-arrow-color, #333) transparent transparent transparent;
 }
 
-.select-selected.select-arrow-active:after {
+.selectSelected.selectArrowActive:after {
   border-color: transparent transparent var(--select-arrow-color, #333) transparent;
   right: 30px;
   top: calc(50% - 8px);
 }
 
 /* Select box and dropdown styles */
-.select-selected,
-.select-items {
+.selectSelected,
+.selectItems {
   background-color: var(--select-bg, var(--white-container));
   color: var(--select-text-color, #333);
   padding: 14px 18px;
@@ -40,7 +40,7 @@
   font-size: 15px;
 }
 
-.select-items {
+.selectItems {
   position: absolute;
   top: 100%;
   left: 0;
@@ -51,7 +51,7 @@
 }
 
 /* Items styling */
-.select-items div {
+.selectItems div {
   color: var(--select-item-color, #333);
   padding: 8px 16px;
   border-bottom: 1px solid var(--select-item-border-color, rgba(0, 0, 0, 0.1));
@@ -60,18 +60,18 @@
   transition: background-color 0.1s ease;
 }
 
-.select-items div:last-child {
+.selectItems div:last-child {
   border-bottom: none;
 }
 
 /* Hover and selected states */
-.select-items div:hover,
-.same-as-selected {
+.selectItems div:hover,
+.sameAsSelected {
   background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
   color: var(--select-hover-color, inherit);
 }
 
 /* Hide functionality */
-.select-hide {
+.selectHide {
   display: none;
 }

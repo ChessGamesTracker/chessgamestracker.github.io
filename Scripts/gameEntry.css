@@ -6,12 +6,12 @@
   margin-top: 25px;
 }
 
-.game-entry {
+.gameEntry {
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--white-container);
-  padding: var(--game-entry-padding-y) 25px;
+  padding: var(--gameEntry-padding-y) 25px;
   border-radius: 8px;
   border: 2px var(--white-d) solid;
   margin-bottom: 15px;
@@ -19,43 +19,43 @@
   transition: all 0.3s ease;
 }
 
-.game-entry:hover {
+.gameEntry:hover {
   transform: translateY(-3px);
 }
 
-.game-entry .game-details {
+.gameEntry .gameDetails {
   display: flex;
   justify-content: space-between;
   width: 100%;
   margin-bottom: 15px;
 }
 
-.game-entry .game-details .entry-date {
+.gameEntry .gameDetails .entryDate {
   color: var(--grey-666);
 }
 
-.player-details {
+.playerDetails {
   display: flex;
   justify-content: space-between; /* Ensure space between players */
   align-items: center; /* Align items vertically centered */
   width: 100%;
 }
 
-.player-left {
+.playerLeft {
   text-align: left; /* Align player left text to the left */
   clear: both;
 }
 
-.player-right {
+.playerRight {
   text-align: right; /* Align player right text to the right */
   clear: both;
 }
 
-.game-result {
+.gameResult {
   position: absolute;
   width: 50%;
   transform: translate(50%, 0);
-  bottom: var(--game-entry-padding-y);
+  bottom: var(--gameEntry-padding-y);
   font-weight: bold;
   font-size: 1.1em;
   color: var(--deep-blue);
@@ -63,8 +63,8 @@
   text-align: center; /* Center the result text */
 }
 
-.game-entry .player-left a,
-.game-entry .player-right a {
+.gameEntry .playerLeft a,
+.gameEntry .playerRight a {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -73,7 +73,7 @@
   transition: color 0.3s ease;
 }
 
-.game-entry .title {
+.gameEntry .title {
   display: inline-block;
   font-size: var(--small);
   padding: 0 4px;
@@ -84,13 +84,13 @@
   font-weight: 600;
 }
 
-.game-entry .player-rating {
+.gameEntry .playerRating {
   margin-left: 4px;
   font-weight: 600;
   font-family: "Rubik", sans-serif;
 }
 
-.delete-game-btn {
+.deleteGameBtn {
   position: absolute;
   left: 100%;
   transform: translate(-45%, 37.5%);
@@ -111,33 +111,33 @@
   border-radius: 50%;
 }
 
-.game-entry:hover .delete-game-btn {
+.gameEntry:hover .deleteGameBtn {
   opacity: 1; /* Visible on hover */
   transform: translate(-50%, 37.5%);
 }
 
-.delete-game-btn:hover {
+.deleteGameBtn:hover {
   background-color: var(--deep-blue);
   color: #fff;
 }
 
-.game-entry-link {
+.gameEntryLink {
   text-decoration: none;
   color: inherit;
   display: block;
   margin-bottom: 15px;
 }
 
-.game-entry-link:hover {
+.gameEntryLink:hover {
   text-decoration: none;
 }
 
-.game-time {
+.gameTime {
   font-weight: 600;
   font-family: "Rubik", sans-serif;
 }
 
-.tournament-header {
+.tournamentHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -150,23 +150,23 @@
   border-bottom: var(--deep-blue) 2px solid;
 }
 
-/*.tournament-header:hover {
+/*.tournamentHeader:hover {
   padding-left: 10px;
 }
 
-.tournament-header .dot {
+.tournamentHeader .dot {
   transition: all 0.3s;
 }
 
-.tournament-header:hover .dot {
+.tournamentHeader:hover .dot {
   font-size: 1.5em;
 }*/
 
-.tournament-section {
+.tournamentSection {
   margin-bottom: 25px;
 }
 
-.game-round {
+.gameRound {
   font-weight: 700;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;

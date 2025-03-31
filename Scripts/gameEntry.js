@@ -1,5 +1,5 @@
 // Get all game entry elements
-const gameEntries = document.querySelectorAll('.game-entry');
+const gameEntries = document.querySelectorAll('.gameEntry');
 
 // Add mousemove event listener to each game entry
 gameEntries.forEach(entry => {
