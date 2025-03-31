@@ -23,7 +23,7 @@ body {
 }
 
 .fontawesome {
-  font-family: "Poppins", 'FontAwesome', sans-serif;
+  font-family: "Poppins", "FontAwesome", sans-serif;
 }
 
 /* Container Styles */
@@ -260,4 +260,16 @@ button {
 .autocomplete-suggestion:hover {
   background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
   color: var(--select-hover-color, inherit);
+}
+
+a.redirect i {
+  position: fixed;
+  padding: 14px 18px;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+  background-color: transparent;
+  font-size: 24px;
+  color: var(--deep-blue);
+  cursor: pointer;
 }

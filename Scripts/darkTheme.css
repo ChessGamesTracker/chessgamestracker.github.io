@@ -133,3 +133,7 @@ body.dark-theme {
 .dark-theme #searchSettings {
   color: var(--white-e0);
 }
+
+.dark-theme .redirect i {
+  color: var(--white-container);
+}
