@@ -29,6 +29,7 @@
     display: flex;
     justify-content: center !important;
     align-items: center !important;
+    margin-bottom: 5px !important;
   }
 
   .entry-date {
