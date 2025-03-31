@@ -91,8 +91,8 @@ document.getElementById("searchInput").addEventListener("input", (e) => {
   displayGames(e.target.value);
 });
 
-const tabBtns = document.querySelectorAll(".tabBtn");
-const tabContents = document.querySelectorAll(".tabContent");
+const tabBtns = document.querySelectorAll(".tab-btn");
+const tabContents = document.querySelectorAll(".tab-content");
 
 tabBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {

@@ -280,36 +280,36 @@ function displayGames(searchTerm = "") {
   // Generate HTML with tournament headers
   gamesList.innerHTML = Object.entries(gamesByTournament)
     .map(([tournament, tournamentGames]) => `
-      <div class="tournamentSection">
-        <div class="tournamentHeader">
+      <div class="tournament-section">
+        <div class="tournament-header">
           <h3>${tournament}</h3>
           <h3 class="dot">●</h3>
         </div>
         ${tournamentGames
           .map(
             (game) => `
-              <a href="${game.gameLink}" target="_blank" class="gameEntryLink">
-                <div class="gameEntry" data-game-id="${game.id}">
-                    <div class="gameDetails" style="align-items: center;">
-                        <div class="gameTournament"><span class="gameRound">${game.round}</span><strong>${game.tournament}</strong></div>
-                        <span class="entryDate"><span class="gameTime">${game.time}</span> | <strong>${game.date}</strong></span>
+              <a href="${game.gameLink}" target="_blank" class="game-entry-link">
+                <div class="game-entry" data-game-id="${game.id}">
+                    <div class="game-details" style="align-items: center;">
+                        <div class="game-tournament"><span class="game-round">${game.round}</span><strong>${game.tournament}</strong></div>
+                        <span class="entry-date"><span class="game-time">${game.time}</span> | <strong>${game.date}</strong></span>
                     </div>
-                    <div class="playerDetails">
-                      <div class="playerLeft">
+                    <div class="player-details">
+                      <div class="player-left">
                             <span>
-                                <span class="title">${game.whiteTitle}</span> ${game.white} <span class="playerRating">${game.whiteRating}</span>
+                                <span class="title">${game.whiteTitle}</span> ${game.white} <span class="player-rating">${game.whiteRating}</span>
                             </span>
                       </div>
-                      <div class="gameResult">
+                      <div class="game-result">
                         <strong>${game.result}</strong>
                       </div>
-                      <div class="playerRight">
+                      <div class="player-right">
                         <span>
-                          <span class="title">${game.blackTitle}</span> ${game.black} <span class="playerRating">${game.blackRating}</span>
+                          <span class="title">${game.blackTitle}</span> ${game.black} <span class="player-rating">${game.blackRating}</span>
                         </span>
                       </div>
                     </div>
-                    <button class="deleteGameBtn" onclick="deleteGame(${game.id}); event.preventDefault()"><i class="fa-solid fa-delete-left"></i></button>
+                    <button class="delete-game-btn" onclick="deleteGame(${game.id}); event.preventDefault()"><i class="fa-solid fa-delete-left"></i></button>
                 </div>
               </a>
             `

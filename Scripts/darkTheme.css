@@ -4,7 +4,7 @@
 /* ========================= */
 /* Base Dark Theme Styles   */
 /* ========================= */
-body.darkTheme {
+body.dark-theme {
   background-color: var(--black-2c);
   color: var(--white-e0);
 }
@@ -12,22 +12,22 @@ body.darkTheme {
 /* ========================= */
 /* Container Styles          */
 /* ========================= */
-.darkTheme .container {
+.dark-theme .container {
   background-color: var(--black-2c);
 }
 
-.darkTheme .container h1 {
+.dark-theme .container h1 {
   color: var(--white-e0);
 }
 
 /* ========================= */
 /* Tab and Button Styles     */
 /* ========================= */
-.darkTheme .tab-btn {
+.dark-theme .tab-btn {
   background-color: var(--black-2c);
 }
 
-.darkTheme .tab-buttons button:not(.active) {
+.dark-theme .tab-buttons button:not(.active) {
   border: 2px solid var(--grey-555);
   background-color: var(--black-2c);
   color: var(--grey-888);
@@ -36,17 +36,17 @@ body.darkTheme {
 /* ========================= */
 /* Game Entry Styles         */
 /* ========================= */
-.darkTheme .game-entry {
+.dark-theme .game-entry {
   background-color: var(--black-2a);
   border: 2px solid var(--grey-333);
   box-shadow: 5px 5px 10px #1e1e1e, -5px -5px 10px #272626;
 }
 
-.darkTheme .game-entry:hover {
+.dark-theme .game-entry:hover {
   background-color: var(--black-2c);
 }
 
-.darkTheme .game-round {
+.dark-theme .game-round {
   color: var(--black-2c);
   background-color: var(--white-e0);
 }
@@ -54,34 +54,34 @@ body.darkTheme {
 /* ========================= */
 /* Game Details Styles       */
 /* ========================= */
-.darkTheme .game-details {
+.dark-theme .game-details {
   color: var(--white-b0);
 }
 
-.darkTheme .game-details .entry-date {
+.dark-theme .game-details .entry-date {
   color: var(--grey-888);
 }
 
-.darkTheme .game-result {
+.dark-theme .game-result {
   color: var(--white-d);
 }
 
-.darkTheme .player-details span {
+.dark-theme .player-details span {
   color: var(--white-d);
 }
 
 /* ========================= */
 /* Input and Form Styles     */
 /* ========================= */
-.darkTheme input,
-.darkTheme select,
-.darkTheme button {
+.dark-theme input,
+.dark-theme select,
+.dark-theme button {
   background-color: var(--black-2c);
   color: var(--white-e0);
   border: 2px solid var(--grey-444);
 }
 
-.darkTheme button {
+.dark-theme button {
   background-color: var(--orange);
   color: var(--white-container);
   font-weight: 600;
@@ -90,14 +90,14 @@ body.darkTheme {
   transition: background-color 0.3s ease;
 }
 
-.darkTheme input:focus::placeholder {
+.dark-theme input:focus::placeholder {
   color: var(--white-container);
 }
 
 /* ========================= */
 /* Custom Select Styles      */
 /* ========================= */
-.darkTheme .custom-select {
+.dark-theme .custom-select {
   --select-bg: var(--dark-bg, #2c2c2c);
   --select-text-color: var(--dark-text, #ccc);
   --select-arrow-color: #ccc;
@@ -110,13 +110,13 @@ body.darkTheme {
 /* ========================= */
 /* Delete Button Styles      */
 /* ========================= */
-.darkTheme .delete-game-btn {
+.dark-theme .delete-game-btn {
   background-color: var(--black-2c);
   color: var(--white-e0);
   transition: all 0.3s ease;
 }
 
-.darkTheme .delete-game-btn:hover {
+.dark-theme .delete-game-btn:hover {
   background-color: var(--white-e0);
   color: var(--black-2c);
 }
@@ -124,12 +124,12 @@ body.darkTheme {
 /* ========================= */
 /* Tournament Header Styles   */
 /* ========================= */
-.darkTheme .tournament-header {
+.dark-theme .tournament-header {
   color: var(--white-e0);
   border-top: var(--white-e0-light) 2px solid;
   border-bottom: var(--white-e0) 2px solid;
 }
 /* Search Settings */
-.darkTheme #searchSettings {
+.dark-theme #searchSettings {
   color: var(--white-e0);
 }
