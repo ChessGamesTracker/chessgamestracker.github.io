@@ -81,7 +81,7 @@
             />
           </div>
           <div class="custom-select">
-            <select id="result" required>
+            <select id="result" required title="Please select the game result">
               <option value="0">Result</option>
               <option value="1 - 0">1 - 0</option>
               <option value="0 - 1">0 - 1</option>
@@ -95,6 +95,7 @@
               placeholder="Tournament"
               class="flex"
               required
+              title="Please enter the tournament name"
             />
             <input
               type="number"
@@ -103,6 +104,7 @@
               min="1"
               class="flex"
               required
+              title="Please enter the round number"
             />
             <input
               type="text"
@@ -110,10 +112,11 @@
               placeholder="Time"
               class="flex"
               required
+              title="Please enter the time control"
             />
           </div>
-          <input type="date" id="date" required />
-          <input type="url" id="gameLink" placeholder="Game Link" required />
+          <input type="date" id="date" required title="Please enter the date of the game"/>
+          <input type="url" id="gameLink" placeholder="Game Link" required title="Please enter the game link"/>
           <button type="submit" id="addGame">
             <span>Add Game</span>
             <div class="loader" id="loader"></div>
