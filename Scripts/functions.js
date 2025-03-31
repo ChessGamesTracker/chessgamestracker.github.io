@@ -206,44 +206,106 @@ function getTimeControlCategory(timeControl) {
 
 /* AUTOCOMPLETE FUNCTIONS */
 async function fetchPlayerNames(query) {
-  const response = await fetch(`https://lichess.org/api/fide/player?q=${query}`);
-  const data = await response.json();
-  return data.map(player => formatName(player.name));
+  try {
+    const response = await fetch(`https://lichess.org/api/fide/player?q=${encodeURIComponent(query)}`);
+    const data = await response.json();
+    return data.map(player => ({
+      name: formatName(player.name),
+      title: abbreviateTitle(player.title)
+    }));
+  } catch (error) {
+    console.error('Error fetching player names:', error);
+    return [];
+  }
 }
 
-function showSuggestions(inputElement, suggestionsContainer, suggestions) {
+function showSuggestions(titleElement, inputElement, suggestionsContainer, suggestions) {
   suggestionsContainer.innerHTML = '';
-  suggestions.forEach(name => {
+  suggestions.forEach(player => {
     const suggestionItem = document.createElement('div');
     suggestionItem.classList.add('autocomplete-suggestion');
-    suggestionItem.textContent = name;
-    suggestionItem.addEventListener('click', () => {
-      inputElement.value = name;
-      suggestionsContainer.innerHTML = '';
-    });
+    const displayText = player.title 
+      ? `<span class="title">${player.title}</span> ${player.name}`
+      : player.name;
+    suggestionItem.innerHTML = displayText;
+    suggestionItem.dataset.name = player.name;
+    suggestionItem.dataset.title = player.title || '';
     suggestionsContainer.appendChild(suggestionItem);
   });
 }
 
 document.getElementById('playerWhite').addEventListener('input', async function (e) {
   const query = e.target.value;
+  const whiteTitleElement = document.getElementById('whiteTitle');
   const suggestionsContainer = document.getElementById('whiteSuggestions');
   if (query.length > 1) {
     const suggestions = await fetchPlayerNames(query);
-    showSuggestions(e.target, suggestionsContainer, suggestions);
+    showSuggestions(whiteTitleElement, e.target, suggestionsContainer, suggestions);
   } else {
     suggestionsContainer.innerHTML = '';
+    e.target.dataset.title = '';
   }
 });
 
 document.getElementById('playerBlack').addEventListener('input', async function (e) {
   const query = e.target.value;
+  const blackTitleElement = document.getElementById('blackTitle');
   const suggestionsContainer = document.getElementById('blackSuggestions');
   if (query.length > 1) {
     const suggestions = await fetchPlayerNames(query);
-    showSuggestions(e.target, suggestionsContainer, suggestions);
+    showSuggestions(blackTitleElement, e.target, suggestionsContainer, suggestions);
   } else {
     suggestionsContainer.innerHTML = '';
+    e.target.dataset.title = '';
+  }
+});
+
+// Add event delegation for suggestion clicks
+document.getElementById('whiteSuggestions').addEventListener('click', function(e) {
+  const suggestionItem = e.target.closest('.autocomplete-suggestion');
+  if (suggestionItem) {
+    const playerInput = document.getElementById('playerWhite');
+    const titleElement = document.getElementById('whiteTitle');
+    playerInput.value = suggestionItem.dataset.name;
+    titleElement.value = suggestionItem.dataset.title;
+    playerInput.dataset.title = suggestionItem.dataset.title;
+    this.innerHTML = '';
+  }
+});
+
+document.getElementById('blackSuggestions').addEventListener('click', function(e) {
+  const suggestionItem = e.target.closest('.autocomplete-suggestion');
+  if (suggestionItem) {
+    const playerInput = document.getElementById('playerBlack');
+    const titleElement = document.getElementById('blackTitle');
+    playerInput.value = suggestionItem.dataset.name;
+    titleElement.value = suggestionItem.dataset.title;
+    playerInput.dataset.title = suggestionItem.dataset.title;
+    this.innerHTML = '';
+  }
+});
+
+// Add Escape key functionality to close suggestions
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.getElementById('whiteSuggestions').innerHTML = '';
+    document.getElementById('blackSuggestions').innerHTML = '';
+  }
+});
+
+// Close suggestions when clicking outside
+document.addEventListener('click', function(e) {
+  const whiteSuggestions = document.getElementById('whiteSuggestions');
+  const blackSuggestions = document.getElementById('blackSuggestions');
+  const playerWhite = document.getElementById('playerWhite');
+  const playerBlack = document.getElementById('playerBlack');
+  
+  if (!playerWhite.contains(e.target) && !whiteSuggestions.contains(e.target)) {
+    whiteSuggestions.innerHTML = '';
+  }
+  
+  if (!playerBlack.contains(e.target) && !blackSuggestions.contains(e.target)) {
+    blackSuggestions.innerHTML = '';
   }
 });
 

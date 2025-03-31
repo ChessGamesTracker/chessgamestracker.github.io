@@ -73,7 +73,7 @@
   transition: color 0.3s ease;
 }
 
-.game-entry .title {
+.title {
   display: inline-block;
   font-size: var(--small);
   padding: 0 4px;
