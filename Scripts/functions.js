@@ -219,14 +219,22 @@ async function fetchPlayerNames(query) {
   }
 }
 
+function highlightMatch(text, query) {
+  const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escapedQuery})`, 'gi');
+  return text.replace(regex, '<span style="font-weight: 700;">$1</span>');
+}
+
 function showSuggestions(titleElement, inputElement, suggestionsContainer, suggestions) {
+  const query = inputElement.value.trim();
   suggestionsContainer.innerHTML = '';
   suggestions.forEach(player => {
     const suggestionItem = document.createElement('div');
     suggestionItem.classList.add('autocomplete-suggestion');
+    const highlightedName = highlightMatch(player.name, query);
     const displayText = player.title 
-      ? `<span class="title">${player.title}</span> ${player.name}`
-      : player.name;
+      ? `<span class="title">${player.title}</span> ${highlightedName}`
+      : highlightedName;
     suggestionItem.innerHTML = displayText;
     suggestionItem.dataset.name = player.name;
     suggestionItem.dataset.title = player.title || '';
