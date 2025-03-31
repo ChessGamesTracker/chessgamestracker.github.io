@@ -145,6 +145,7 @@
   transition: all 0.3s;
   color: var(--deep-blue);
   padding: 10px 25px;
+  padding-left: 15px !important; 
   margin-bottom: 10px;
   border-top: var(--deep-blue-light) 2px solid;
   border-bottom: var(--deep-blue) 2px solid;
