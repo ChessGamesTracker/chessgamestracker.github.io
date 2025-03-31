@@ -181,21 +181,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--small);
   width: 100%;
 }
 
 #searchInput {
   width: 100%;
-}
-
-#searchSettings {
-  display: block;
-  z-index: 10;
-  width: calc(1.5 * var(--medium));
-  height: calc(1.5 * var(--medium));
-  font-size: var(--normal);
-  color: var(--deep-blue);
-  cursor: pointer;
-  transition: all 0.2s ease;
 }
