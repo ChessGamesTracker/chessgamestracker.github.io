@@ -155,6 +155,7 @@ button {
 }
 
 .flex {
+  width: 100%;
   flex-grow: 1;
 }
 
@@ -192,7 +193,6 @@ button {
 }
 
 /**/
-/* HTML:  */
 .loader {
   width: var(--normal);
   aspect-ratio: 1;
@@ -201,4 +201,63 @@ button {
   border-right-color: transparent;
   animation: l2 1s infinite linear;
   display: none;
+}
+
+/* Autocomplete Styles */
+.autocomplete-container {
+  position: relative;
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  width: 100%;
+}
+
+.autocomplete-suggestions {
+  position: absolute;
+  background-color: var(--select-bg, var(--white-container));
+  color: var(--select-text-color, #333);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 99;
+  width: 100%;
+  margin-top: 8px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: 2px solid var(--select-border-color);
+  border-radius: var(--border-radius);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--select-border-color) transparent;
+}
+
+.autocomplete-suggestions:empty {
+  display: none;
+}
+
+.autocomplete-suggestions::-webkit-scrollbar {
+  width: 6px;
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-thumb {
+  background-color: var(--select-border-color);
+  border-radius: 3px;
+}
+
+.autocomplete-suggestion {
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: var(--select-item-color, #333);
+  user-select: none;
+  transition: all 0.1s ease;
+}
+
+.autocomplete-suggestion:hover {
+  background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
+  color: var(--select-hover-color, inherit);
 }

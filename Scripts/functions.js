@@ -204,6 +204,49 @@ function getTimeControlCategory(timeControl) {
   }
 }
 
+/* AUTOCOMPLETE FUNCTIONS */
+async function fetchPlayerNames(query) {
+  const response = await fetch(`https://lichess.org/api/fide/player?q=${query}`);
+  const data = await response.json();
+  return data.map(player => formatName(player.name));
+}
+
+function showSuggestions(inputElement, suggestionsContainer, suggestions) {
+  suggestionsContainer.innerHTML = '';
+  suggestions.forEach(name => {
+    const suggestionItem = document.createElement('div');
+    suggestionItem.classList.add('autocomplete-suggestion');
+    suggestionItem.textContent = name;
+    suggestionItem.addEventListener('click', () => {
+      inputElement.value = name;
+      suggestionsContainer.innerHTML = '';
+    });
+    suggestionsContainer.appendChild(suggestionItem);
+  });
+}
+
+document.getElementById('playerWhite').addEventListener('input', async function (e) {
+  const query = e.target.value;
+  const suggestionsContainer = document.getElementById('whiteSuggestions');
+  if (query.length > 1) {
+    const suggestions = await fetchPlayerNames(query);
+    showSuggestions(e.target, suggestionsContainer, suggestions);
+  } else {
+    suggestionsContainer.innerHTML = '';
+  }
+});
+
+document.getElementById('playerBlack').addEventListener('input', async function (e) {
+  const query = e.target.value;
+  const suggestionsContainer = document.getElementById('blackSuggestions');
+  if (query.length > 1) {
+    const suggestions = await fetchPlayerNames(query);
+    showSuggestions(e.target, suggestionsContainer, suggestions);
+  } else {
+    suggestionsContainer.innerHTML = '';
+  }
+});
+
 /*LOADER FUNCTIONS*/
 function showLoader() {
   document.getElementById("loader").style.display = "inline";

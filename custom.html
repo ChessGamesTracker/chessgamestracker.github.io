@@ -39,13 +39,17 @@
               class="titleInput"
               placeholder="Title"
             />
-            <input
-              type="text"
-              id="playerWhite"
-              class="flex rating"
-              placeholder="White Player"
-              required
-            />
+            <div class="autocomplete-container">
+              <input
+                type="text"
+                id="playerWhite"
+                class="flex"
+                placeholder="White Player"
+                autocomplete="off"
+                required
+              />
+              <div id="whiteSuggestions" class="autocomplete-suggestions"></div>
+            </div>
             <input
               type="number"
               min="1400"
@@ -63,13 +67,17 @@
               class="titleInput"
               placeholder="Title"
             />
-            <input
-              type="text"
-              id="playerBlack"
-              class="flex"
-              placeholder="Black Player"
-              required
-            />
+            <div class="autocomplete-container">
+              <input
+                type="text"
+                id="playerBlack"
+                class="flex"
+                placeholder="Black Player"
+                autocomplete="off"
+                required
+              />
+              <div id="blackSuggestions" class="autocomplete-suggestions"></div>
+            </div>
             <input
               type="number"
               min="1400"
@@ -115,8 +123,19 @@
               title="Please enter the time control"
             />
           </div>
-          <input type="date" id="date" required title="Please enter the date of the game"/>
-          <input type="url" id="gameLink" placeholder="Game Link" required title="Please enter the game link"/>
+          <input
+            type="date"
+            id="date"
+            required
+            title="Please enter the date of the game"
+          />
+          <input
+            type="url"
+            id="gameLink"
+            placeholder="Game Link"
+            required
+            title="Please enter the game link"
+          />
           <button type="submit" id="addGame">
             <span>Add Game</span>
             <div class="loader" id="loader"></div>
