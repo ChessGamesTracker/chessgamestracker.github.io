@@ -235,9 +235,6 @@ async function fetchPlayerNames(query) {
     
     // Log the error
     console.error('Error fetching player names:', error);
-
-    // Show error in alert box
-    alert(`Error fetching player data: ${error.message}`);
     
     // Return an empty array on failure
     return [];
