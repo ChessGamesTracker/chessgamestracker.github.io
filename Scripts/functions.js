@@ -448,7 +448,7 @@ function displayGames(searchTerm = "") {
       (game) =>
         game.white.toLowerCase().includes(normalizedSearchTerm) ||
         game.black.toLowerCase().includes(normalizedSearchTerm) ||
-        game.tournament.toLowerCase().includes(searchTerm).toLowerCase()
+        game.tournament.toLowerCase().includes(normalizedSearchTerm)
     )
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
