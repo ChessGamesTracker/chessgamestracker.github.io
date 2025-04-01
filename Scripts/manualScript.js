@@ -47,6 +47,8 @@ function addGame(event) {
 
   // 🚀 **Add duplicate check here BEFORE pushing to games**
   if (games.some(g => 
+    g.white === playerWhite && 
+    g.black === playerBlack && 
     g.date === date && 
     g.tournament === tournament && 
     g.round === round)) {
