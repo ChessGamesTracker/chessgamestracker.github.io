@@ -111,9 +111,9 @@ body.dark-theme {
 /* Delete Button Styles      */
 /* ========================= */
 .dark-theme .delete-game-btn {
+  transition: background-color, color 0s;
   background-color: var(--black-2c);
   color: var(--white-e0);
-  transition: all 0.3s ease;
 }
 
 .dark-theme .delete-game-btn:hover {
