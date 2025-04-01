@@ -150,25 +150,30 @@
               placeholder="  Search by player or tournament name"
             />
           </div>
-          <a onclick="exportJSON()" class="tooltip">
-            <div class="download">
-              <i class="fa-solid fa-download"></i>
-            </div>
-            <span class="tooltiptext">Download Your Games</span>
-          </a>
-          <a onclick="document.getElementById('fileInput').click();" class="tooltip">
-            <div class="download">
-              <i class="fa-solid fa-upload"></i>
-            </div>
-            <span class="tooltiptext">Upload Your Games</span>
-            <input
-              type="file"
-              id="fileInput"
-              accept=".json"
-              style="display: none"
-              onchange="importJSON(event)"
-            />
-          </a>
+          <div class="options">
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+          <div class="dropdown">
+            <a onclick="exportJSON()" class="dropdown-item">
+              <div class="download">
+                <i class="fa-solid fa-download"></i>
+                <span style="font-size: var(--small);">Export Games</span>
+              </div>
+            </a>
+            <a onclick="document.getElementById('fileInput').click();" class="dropdown-item">
+              <div class="download">
+                <i class="fa-solid fa-upload"></i>
+                <span style="font-size: var(--small);">Import Games</span>
+              </div>
+              <input
+                type="file"
+                id="fileInput"
+                accept=".json"
+                style="display: none"
+                onchange="importJSON(event)"
+              />
+            </a>
+          </div>
         </div>
         <div id="gamesList"></div>
       </div>
@@ -188,5 +193,6 @@
     <script src="Scripts/functions.js"></script>
     <script src="Scripts/manualScript.js"></script>
     <script src="Scripts/darkTheme.js"></script>
+    <script src="Scripts/dropdown.js"></script>
   </body>
 </html>
