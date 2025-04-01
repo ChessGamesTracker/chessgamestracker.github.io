@@ -165,8 +165,8 @@ button {
 }
 
 .titleInput {
-  flex: 0 0 70px;
-  width: 70px;
+  flex: 0 0 80px;
+  width: 80px;
 }
 
 .ratingInput {
@@ -176,8 +176,8 @@ button {
 
 #round,
 #time {
-  flex: 0 0 100px !important;
-  width: 100px !important;
+  flex: 0 0 105px !important;
+  width: 105px !important;
 }
 
 /* Animations */
