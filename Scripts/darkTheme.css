@@ -134,6 +134,6 @@ body.dark-theme {
   color: var(--white-e0);
 }
 
-.dark-theme .redirect i {
+.dark-theme i, .dark-theme .redirect i {
   color: var(--white-container);
 }

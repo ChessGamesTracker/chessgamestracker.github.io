@@ -206,15 +206,40 @@ function getTimeControlCategory(timeControl) {
 
 /* AUTOCOMPLETE FUNCTIONS */
 async function fetchPlayerNames(query) {
+  // Setup abort controller for timeout handling
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 5000); // 5 second timeout
+
   try {
-    const response = await fetch(`https://lichess.org/api/fide/player?q=${encodeURIComponent(query)}`);
+    // Construct and encode the API URL
+    const apiUrl = `https://lichess.org/api/fide/player?q=${encodeURIComponent(query.trim())}`;
+    const response = await fetch(apiUrl, { signal: controller.signal });
+
+    // Handle unsuccessful responses
+    if (!response.ok) {
+      throw new Error(`API request failed with status ${response.status}`);
+    }
+
+    // Parse the JSON response
     const data = await response.json();
+    clearTimeout(timeoutId); // Prevent timeout from firing after completion
+
+    // Return only name and title data
     return data.map(player => ({
       name: formatName(player.name),
       title: abbreviateTitle(player.title)
     }));
   } catch (error) {
+    // Clear the timeout to prevent memory leaks
+    clearTimeout(timeoutId);
+    
+    // Log the error
     console.error('Error fetching player names:', error);
+
+    // Show error in alert box
+    alert(`Error fetching player data: ${error.message}`);
+    
+    // Return an empty array on failure
     return [];
   }
 }
