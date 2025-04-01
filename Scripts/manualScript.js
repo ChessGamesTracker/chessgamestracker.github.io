@@ -47,41 +47,31 @@ function addGame(event) {
 
   // 🚀 **Add duplicate check here BEFORE pushing to games**
   if (games.some(g => 
-    g.white === playerWhite && 
-    g.black === playerBlack && 
     g.date === date && 
     g.tournament === tournament && 
     g.round === round)) {
     hideLoader();
     alert("This game already exists!");
     return;
-  } else if (games.some(g => 
-    g.date === date && 
-    g.tournament === tournament && 
-    g.round === round)) {
-      hideLoader();
-      alert("This game already exists!");
-      return;
-    }
-
-  games.push(game);
-  saveGames();
-  displayGames();
-  event.target.reset();
-
-  hideLoader();
-
-  alert(
-    `${toUnicodeVariant(
-      game.whiteTitle,
-      "bold sans",
-      "sans"
-    )} ${playerWhite} vs ${toUnicodeVariant(
-      game.blackTitle,
-      "bold sans",
-      "sans"
-    )} ${playerBlack} Game Added!`
-  );
+  }
+    games.push(game);
+    saveGames();
+    displayGames();
+    event.target.reset();
+  
+    hideLoader();
+  
+    alert(
+      `${toUnicodeVariant(
+        game.whiteTitle,
+        "bold sans",
+        "sans"
+      )} ${playerWhite} vs ${toUnicodeVariant(
+        game.blackTitle,
+        "bold sans",
+        "sans"
+      )} ${playerBlack} Game Added!`
+    );
 }
 
 

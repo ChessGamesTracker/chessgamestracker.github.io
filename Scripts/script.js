@@ -125,23 +125,13 @@ async function addGame(event) {
 
   // 🚀 **Add duplicate check here BEFORE pushing to games**
   if (games.some(g => 
-    g.white === playerWhite && 
-    g.black === playerBlack && 
     g.date === date && 
     g.tournament === tournament && 
     g.round === round)) {
     hideLoader();
     alert("This game already exists!");
     return;
-  } else if (games.some(g => 
-    g.date === date && 
-    g.tournament === tournament && 
-    g.round === round)) {
-      hideLoader();
-      alert("This game already exists!");
-      return;
-    }
-
+  }
     games.push(game);
     saveGames();
     displayGames();
