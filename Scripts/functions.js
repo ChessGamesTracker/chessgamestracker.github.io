@@ -373,6 +373,25 @@ function formatName(name) {
   return parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
 }
 
+function downloadJSON() {
+  // Convert the games array to a JSON string
+  const data = JSON.stringify(games, null, 2);
+
+  // Create a Blob from the JSON string
+  const blob = new Blob([data], { type: "application/json" });
+
+  // Create a link element
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `ChessGamesBackup.json`;
+
+  // Trigger the download
+  link.click();
+
+  // Clean up
+  URL.revokeObjectURL(link.href);
+}
+
 function deleteGame(id) {
   let gameToDelete = games.find((game) => game.id === id);
   let delete_confirmation = `Are you sure you want to delete:\n ${toUnicodeVariant(

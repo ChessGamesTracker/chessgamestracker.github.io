@@ -141,13 +141,21 @@
         </form>
       </div>
       <div class="tab-content">
-        <div id="search">
-          <input
-            type="text"
-            class="fontawesome"
-            id="searchInput"
-            placeholder="  Search by player or tournament name"
-          />
+        <div class="filters">
+          <div id="search">
+            <input
+              type="text"
+              class="fontawesome"
+              id="searchInput"
+              placeholder="  Search by player or tournament name"
+            />
+          </div>
+          <a onclick="downloadJSON()" class="tooltip">
+            <div class="download">
+              <i class="fa-solid fa-download"></i>
+            </div>
+            <span class="tooltiptext">Download Your Games</span>
+          </a>
         </div>
         <div id="gamesList"></div>
       </div>

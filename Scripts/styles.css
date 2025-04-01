@@ -33,7 +33,7 @@ body {
   width: 70%;
   padding: 50px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 /* Typography */
@@ -272,5 +272,19 @@ a.redirect {
   background-color: transparent;
   font-size: 24px;
   color: var(--deep-blue);
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+}
+
+.download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--small);
+  font-size: 24px;
   cursor: pointer;
 }
