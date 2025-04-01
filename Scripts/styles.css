@@ -1,5 +1,6 @@
 /* Imports */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+@import url("./tooltip.css");
 @import url("root.css");
 
 html {
@@ -262,12 +263,12 @@ button {
   color: var(--select-hover-color, inherit);
 }
 
-a.redirect i {
+a.redirect {
   position: fixed;
-  padding: 14px 18px;
   bottom: 20px;
   left: 20px;
   z-index: 1000;
+  padding: 14px 18px;
   background-color: transparent;
   font-size: 24px;
   color: var(--deep-blue);
