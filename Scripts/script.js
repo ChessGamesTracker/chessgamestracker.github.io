@@ -6,7 +6,7 @@ let games = JSON.parse(localStorage.getItem("chessGames")) || [];
 
 /*API REQUEST INFO*/
 const LOADER_CONFIG = {
-  TIMEOUT_MS: 10000,
+  TIMEOUT_MS: 5000,
   API_URL: 'https://lichess.org/api/fide/player/',
 };
 /*API REQUEST */
