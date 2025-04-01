@@ -97,7 +97,7 @@ body.dark-theme {
 /* ========================= */
 /* Custom Select Styles      */
 /* ========================= */
-.dark-theme .custom-select {
+.dark-theme, .dark-theme .custom-select {
   --select-bg: var(--dark-bg, #2c2c2c);
   --select-text-color: var(--dark-text, #ccc);
   --select-arrow-color: #ccc;
