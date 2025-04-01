@@ -373,7 +373,7 @@ function formatName(name) {
   return parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
 }
 
-function downloadJSON() {
+function exportJSON() {
   // Convert the games array to a JSON string
   const data = JSON.stringify(games, null, 2);
 
@@ -391,6 +391,35 @@ function downloadJSON() {
   // Clean up
   URL.revokeObjectURL(link.href);
 }
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+      try {
+          const importedData = JSON.parse(e.target.result);
+          if (!Array.isArray(importedData)) {
+              alert("Invalid file format! Make sure you're uploading a valid JSON backup.");
+              return;
+          }
+
+          // Update the games variable
+          games = importedData;
+          localStorage.setItem("chessGames", JSON.stringify(games));
+          displayGames(); // Refresh the displayed games
+
+          alert("Games imported successfully!");
+      } catch (error) {
+          alert("Error parsing JSON file!");
+          console.error(error);
+      }
+  };
+
+  reader.readAsText(file);
+}
+
 
 function deleteGame(id) {
   let gameToDelete = games.find((game) => game.id === id);

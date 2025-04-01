@@ -6,7 +6,6 @@
 .tooltip .tooltiptext {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.1s ease;
   width: 120px;
   background-color: #000000C7;
   color: #fff;
@@ -33,5 +32,8 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.1s ease;
+}
+
+.tooltip:not(:hover) .tooltiptext {
+  visibility: hidden;
 }

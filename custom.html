@@ -150,11 +150,24 @@
               placeholder="  Search by player or tournament name"
             />
           </div>
-          <a onclick="downloadJSON()" class="tooltip">
+          <a onclick="exportJSON()" class="tooltip">
             <div class="download">
               <i class="fa-solid fa-download"></i>
             </div>
             <span class="tooltiptext">Download Your Games</span>
+          </a>
+          <a onclick="document.getElementById('fileInput').click();" class="tooltip">
+            <div class="download">
+              <i class="fa-solid fa-upload"></i>
+            </div>
+            <span class="tooltiptext">Upload Your Games</span>
+            <input
+              type="file"
+              id="fileInput"
+              accept=".json"
+              style="display: none"
+              onchange="importJSON(event)"
+            />
           </a>
         </div>
         <div id="gamesList"></div>
