@@ -107,6 +107,11 @@ body.dark-theme {
   --select-item-border-color: var(--grey-444);
 }
 
+.dark-theme .dropdown, .dark-theme .dropdown::before, .dark-theme .dropdown::after {
+  background-color: var(--select-bg);
+  border-color: transparent transparent var(--select-bg) transparent;
+}
+
 /* ========================= */
 /* Delete Button Styles      */
 /* ========================= */
