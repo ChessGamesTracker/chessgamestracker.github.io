@@ -388,7 +388,15 @@ function exportJSON() {
   }
 
   // Convert the games array to a JSON string
-  const data = JSON.stringify(games, null, 2);
+  const dataInitial = JSON.parse(JSON.stringify(games));
+
+  // Remove the "id" key from each game object
+  dataInitial.forEach(game => {
+    delete game.id;
+  });
+
+  // Convert the modified array to a JSON string
+  const data = JSON.stringify(dataInitial, null, 2);
 
   // Create a Blob from the JSON string
   const blob = new Blob([data], { type: "application/json" });
