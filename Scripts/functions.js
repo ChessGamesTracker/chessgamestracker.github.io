@@ -373,7 +373,16 @@ function formatName(name) {
   return parts.length === 2 ? `${parts[1]} ${parts[0]}` : name;
 }
 
+function isEmpty(array) {
+  return !array || array.length === 0;
+}
+
 function exportJSON() {
+  if (isEmpty(games)) {
+    alert("No games were found in this database");
+    return;
+  }
+
   // Convert the games array to a JSON string
   const data = JSON.stringify(games, null, 2);
 
@@ -403,6 +412,9 @@ function importJSON(event) {
           if (!Array.isArray(importedData)) {
               alert("Invalid file format! Make sure you're uploading a valid JSON backup.");
               return;
+          } else if (isEmpty(importedData)) {
+            alert("No games were found in this database");
+            return;
           }
 
           // Update the games variable
