@@ -108,7 +108,7 @@ async function addGame(event) {
     const date = document.getElementById("date").value
 
     const game = {
-      id: Date.now(),
+      id: generateUniqueID(),
       white: playerWhite,
       whiteRating: whiteRating,
       whiteTitle: whiteTitle,

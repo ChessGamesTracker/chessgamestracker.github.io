@@ -120,6 +120,10 @@ function saveGames() {
   localStorage.setItem("chessGames", JSON.stringify(games));
 }
 
+function generateUniqueID() {
+  return crypto.randomUUID();
+}
+
 function capitalize(str) {
   let capitalizedStr = "";
   let words = str.split(" ");
@@ -409,6 +413,12 @@ function importJSON(event) {
   reader.onload = function (e) {
       try {
           const importedData = JSON.parse(e.target.result);
+          
+          // Generate new IDs for each imported game
+          importedData.forEach(game => {
+            game.id = generateUniqueID();
+          });
+          
           if (!Array.isArray(importedData)) {
               alert("Invalid file format! Make sure you're uploading a valid JSON backup.");
               return;
@@ -505,7 +515,7 @@ function displayGames(searchTerm = "") {
                         </span>
                       </div>
                     </div>
-                    <button class="delete-game-btn" onclick="deleteGame(${game.id}); event.preventDefault()"><i class="fa-solid fa-delete-left"></i></button>
+                    <button class="delete-game-btn" onclick="deleteGame('${game.id}'); event.preventDefault()"><i class="fa-solid fa-delete-left"></i></button>
                 </div>
               </a>
             `
