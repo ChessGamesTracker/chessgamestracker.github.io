@@ -1,16 +1,27 @@
 /* Imports */
 @import url("root.css");
 
+/* Base Custom Select Styles */
 .custom-select {
   position: relative;
-  font-family: "Poppins", sans-serif;
 }
 
 .custom-select select {
-  display: none; /* hide original SELECT element */
+  display: none;
 }
 
-/* Arrow styling */
+/* Select Box Styles */
+.select-selected,
+.select-items {
+  background-color: var(--select-bg, var(--white-container));
+  color: var(--select-text-color, #333);
+  padding: 14px 18px;
+  border: 2px solid var(--select-border-color);
+  border-radius: var(--border-radius);
+  font-size: var(--small);
+}
+
+/* Arrow Styles */
 .select-selected:after {
   position: absolute;
   content: "";
@@ -18,7 +29,7 @@
   right: 30px;
   width: 0;
   height: 0;
-  border: 6px solid transparent;
+  border: var(--small-border) solid transparent;
   border-color: var(--select-arrow-color, #333) transparent transparent transparent;
 }
 
@@ -28,18 +39,7 @@
   top: calc(50% - 8px);
 }
 
-/* Select box and dropdown styles */
-.select-selected,
-.select-items {
-  background-color: var(--select-bg, var(--white-container));
-  color: var(--select-text-color, #333);
-  padding: 14px 18px;
-  border: 2px solid var(--select-border-color);
-  border-radius: 10px;
-  font-family: "Poppins", sans-serif;
-  font-size: 15px;
-}
-
+/* Items Container Styles */
 .select-items {
   position: absolute;
   top: 100%;
@@ -50,12 +50,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.17);
 }
 
-/* Items styling */
-.select-items div {
-  color: var(--select-item-color, #333);
+/* Items Styles */
+.select-items div,
+.dropdown-item {
   padding: 8px 16px;
-  border-radius: 6px;
-  /*border-bottom: 1px solid var(--select-item-border-color, rgba(0, 0, 0, 0.1));*/
+  border-radius: var(--small-border);
+  color: var(--select-item-color, #333);
   cursor: pointer;
   user-select: none;
 }
@@ -64,14 +64,122 @@
   border-bottom: none;
 }
 
-/* Hover and selected states */
+/* Item States */
 .select-items div:hover,
 .same-as-selected {
   background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
   color: var(--select-hover-color, inherit);
 }
 
-/* Hide functionality */
 .select-hide {
   display: none;
+}
+
+/* Dropdown Component Styles */
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 5px;
+  width: 200px;
+  background-color: var(--white-container);
+  border: 2px solid var(--select-border-color);
+  border-radius: var(--border-radius);
+  padding: var(--small) calc(var(--small) / 2);
+  z-index: 100;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.17);
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Dropdown Arrow */
+.dropdown::before,
+.dropdown::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  border-width: 0 10px 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent var(--white-container) transparent;
+}
+
+/* Dropdown States */
+.dropdown.show {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideInSmall 0.1s ease-out;
+}
+
+.dropdown-item {
+  font-size: var(--small);
+  gap: var(--small);
+}
+
+.dropdown-item:hover {
+  background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
+  color: var(--select-hover-color, inherit);
+}
+
+/* Autocomplete Component Styles */
+.autocomplete-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Suggestions Container */
+.autocomplete-suggestions {
+  position: absolute;
+  background-color: var(--select-bg, var(--white-container));
+  color: var(--select-text-color, #333);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 99;
+  width: 100%;
+  margin-top: 8px;
+  padding: var(--small-border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: 2px solid var(--select-border-color);
+  border-radius: var(--border-radius);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  scrollbar-width: thin;
+  scrollbar-color: var(--select-border-color) transparent;
+}
+
+/* Suggestions States */
+.autocomplete-suggestions:empty {
+  display: none;
+}
+
+/* Scrollbar Styles */
+.autocomplete-suggestions::-webkit-scrollbar {
+  width: var(--small-border);
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.autocomplete-suggestions::-webkit-scrollbar-thumb {
+  background-color: var(--select-border-color);
+  border-radius: 3px;
+}
+
+/* Suggestion Items */
+.autocomplete-suggestion {
+  color: var(--select-item-color, #333);
+  padding: 8px 16px;
+  border-radius: var(--small-border);
+  cursor: pointer;
+  user-select: none;
+}
+
+.autocomplete-suggestion:hover {
+  background-color: var(--select-hover-bg, rgba(0, 0, 0, 0.1));
+  color: var(--select-hover-color, inherit);
 }
