@@ -85,23 +85,21 @@ async function addGame(event) {
     playerWhite = formatName(capitalize(playerWhite));
     playerBlack = formatName(capitalize(playerBlack));
 
-    const timeControl = document.getElementById("time").value || "";
+    const time = document.getElementById("time").value || "";
 
     let whiteRating = 0;
     let blackRating = 0;
 
-    if (getTimeControlCategory(timeControl) === "Classical") {
+    if (getTimeControlCategory(time) === "Classical") {
       whiteRating = whiteStandard;
       blackRating = blackStandard;
-    } else if (getTimeControlCategory(timeControl) === "Rapid") {
+    } else if (getTimeControlCategory(time) === "Rapid") {
       whiteRating = whiteRapid;
       blackRating = blackRapid;
-    } else if (getTimeControlCategory(timeControl) === "Blitz") {
+    } else if (getTimeControlCategory(time) === "Blitz") {
       whiteRating = whiteBlitz;
       blackRating = blackBlitz;
     }
-
-    const time = `${timeControl} • ${getTimeControlCategory(timeControl)}`;
 
     const tournament = document.getElementById("tournament").value;
     const round = parseInt(document.getElementById("round").value) || 1;

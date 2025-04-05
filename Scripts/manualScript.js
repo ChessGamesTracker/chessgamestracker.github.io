@@ -22,8 +22,7 @@ function addGame(event) {
   const whiteRating = parseInt(document.getElementById("whiteRating").value) || 0;
   const blackRating = parseInt(document.getElementById("blackRating").value) || 0;
 
-  const timeControl = document.getElementById("time").value || "";
-  const time = `${timeControl} • ${getTimeControlCategory(timeControl)}`;
+  const time = document.getElementById("time").value || "";
 
   const tournament = document.getElementById("tournament").value;
   const round = parseInt(document.getElementById("round").value) || 1;

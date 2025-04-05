@@ -506,7 +506,7 @@ function displayGames(searchTerm = "") {
                 <div class="game-entry" data-game-id="${game.id}">
                     <div class="game-details" style="align-items: center;">
                         <div class="game-tournament"><span class="game-round">${game.round}</span><strong>${game.tournament}</strong></div>
-                        <span class="entry-date"><span class="game-time">${game.time}</span> | <strong>${game.date}</strong></span>
+                        <span class="entry-date"><span class="game-time">${game.time} • ${getTimeControlCategory(game.time)}</span> | <strong>${game.date}</strong></span>
                     </div>
                     <div class="player-details">
                       <div class="player-left">
