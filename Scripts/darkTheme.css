@@ -58,7 +58,7 @@ body.dark-theme {
   color: var(--white-b0);
 }
 
-.dark-theme .game-details .entry-date {
+.dark-theme .game-details .entry-meta {
   color: var(--grey-888);
 }
 
