@@ -92,18 +92,7 @@
   opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.2s ease, transform 0.2s ease;
-}
-
-/* Dropdown Arrow */
-.dropdown::before,
-.dropdown::after {
-  content: "";
-  position: absolute;
-  top: -10px;
-  right: 10px;
-  border-width: 0 10px 10px 10px;
-  border-style: solid;
-  border-color: transparent transparent var(--white-container) transparent;
+  border: 2px var(--white-d) solid;
 }
 
 /* Dropdown States */
