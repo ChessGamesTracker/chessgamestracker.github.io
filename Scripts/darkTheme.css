@@ -109,7 +109,7 @@ body.dark-theme {
 
 .dark-theme .dropdown, .dark-theme .dropdown::before, .dark-theme .dropdown::after {
   background-color: var(--select-bg);
-  border-color: transparent transparent var(--select-bg) transparent;
+  border: 2px solid var(--grey-333);
 }
 
 /* ========================= */
